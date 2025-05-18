@@ -2,10 +2,11 @@ window.addEventListener('DOMContentLoaded', function() {
     // глобальный обект игры
     const game = {
         lives: 3,
-        timer: 0,
+        timerId: null,
         minspeed: window.innerwidth <= 768 ? 400 : 700,
         gamespeed: 1700,
-        board: 16
+        board: 16,
+        startTime: 0 
     };
 
     // Получаем элементы dom
@@ -134,18 +135,21 @@ window.addEventListener('DOMContentLoaded', function() {
         startscreen.classList.add('hidden');
         gamecontainer.classList.remove('hidden');
         game.lives = 3;
-        game.timer = 0;
+        game.startTime = Date.now();
+        game.timerId = setInterval(updatetime, 1000);           
         game.gamespeed = 1700;
         livesdisplay.innerText = '❤️'.repeat(game.lives);
 
         setTimeout(gettingfaster, game.gamespeed);
     }
 
+    function updatetime() {
+        const pastedtime = Date.now() - game.startTime;
+        timerdisplay.innerText = `Время: ${Math.floor((pastedtime/1000) / 60)}:${Math.floor((pastedtime/1000) % 60).toString().padStart(2,  "0")}`;
+    }
+
     // Функция спавна
     function gettingfaster() {
-        game.timer++;
-        timerdisplay.innerText = `Время: ${Math.floor(game.timer / 60)}:${(game.
-            timer % 60).toString().padStart(2, '0')}`;
             spawnelement(Math.random() < 0.9 ? 'mole' : 'heart');
             game.gamespeed = Math.max(game.minspeed, game.gamespeed - 50);
             console.log('новая скорость:', game.gamespeed);      
@@ -154,9 +158,12 @@ window.addEventListener('DOMContentLoaded', function() {
 
     function checkgameover() {
         if ( game.lives <= 0) {
+            clearInterval(game.timerId);
+            game.timerId = null;
             gameoverscreen.classList.remove('hidden');
             gamecontainer.classList.add('hidden');
-            finaltime.innerText = `Ты продержался ${game.timer} sec.`;
+            const currenttime = Date.now() - game.startTime;
+            finaltime.innerText = `Ты продержался ${Math.floor(currenttime/1000)} sec.`;
             sounds.gameover.play();
         }
     }
