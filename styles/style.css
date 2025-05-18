@@ -275,3 +275,58 @@ opacity: .8;
     height: 24px;
   }
 }
+
+        /*whack a mole*/
+/* Медиа-запрос для планшетов */
+  @media (max-width: 768px) {
+    .cell {
+      width: 70px;
+      height: 70px;
+    }
+  
+    button {
+      font-size: 14px;
+      padding: 10px 20px;
+    }
+  
+    #info {
+      font-size: 1em;
+    }
+  
+    #lives {
+      font-size: 1.2em;
+    }
+  
+    #game-container {
+      max-width: 90vw;
+    }
+  }
+  
+  /* Медиа-запрос для телефонов */
+  @media (max-width: 480px) {
+    .cell {
+      width: 55px;
+      height: 55px;
+    }
+  
+    button {
+      font-size: 12px;
+      padding: 8px 16px;
+    }
+  
+    .screen {
+      padding: 15px;
+    }
+  
+    #info {
+      font-size: 0.9em;
+    }
+  
+    #lives {
+      font-size: 1em;
+    }
+  
+    #grid {
+      gap: 6px;
+    }
+  }
