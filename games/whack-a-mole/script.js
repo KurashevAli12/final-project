@@ -3,7 +3,7 @@ window.addEventListener('DOMContentLoaded', function() {
     const game = {
         lives: 3,
         timerId: null,
-        minspeed: window.innerwidth <= 768 ? 400 : 700,
+        minspeed: window.innerwidth <= 768 ? 300 : 700,
         gamespeed: 1700,
         board: 16,
         startTime: 0 
