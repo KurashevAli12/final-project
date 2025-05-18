@@ -1,0 +1,182 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, rgb(8, 127, 232), rgb(4, 229, 4) );
+    color: #222;
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+/* Контейнер игры */
+#game-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Стартовый экран и Game Over */
+.screen {
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    transform: translate(-50%, -50%) scale(1);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+.hidden  {
+    opacity: 0;
+    display: none;
+}
+
+/* Стиль кнопок */
+button {
+    padding: 8px 12px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    background: linear-gradient(130deg, rgb(0, 96, 0), rgb(3, 197, 3));
+    color: rgb(240, 226, 226);
+    border: none;
+    border-radius: 12px;
+    box-shadow: 5px 8px 12px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(130deg, rgb(0, 81, 0), rgb(3, 187, 3));
+    transform: scale(1.1);
+}
+
+/* Сетка */
+#grid {
+    display: grid;
+     grid-template-columns: repeat(4, 1fr); /* Менять здесь */
+     gap: 10px;
+     margin-bottom: 20px;
+}
+
+/* Клетки */
+.cell {
+    width: 100px;
+    height: 100px;
+   background: linear-gradient(140deg, rgb(237, 237, 237), rgb(184, 184, 184));;
+    border: 3px solid rgb(0, 0, 141);
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    user-select: none;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Изображение в клетках */
+.cell img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* жизни */
+#lives {
+    color: rgb(172, 32, 32);
+    font-weight: bold;
+    font-size: 1.4em;
+    min-height: 5px;
+}
+
+/* Информационный блок */
+#info {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+/* animation */
+@keyframes mole-spawn {
+    0% {
+        opacity:0.2;
+        transform: translateY(100%) scale(0.8);
+    }
+    100% {
+        opacity:1;
+        transform: translateY(0%) scale(1);
+    }
+}
+
+@keyframes heart-spawn {
+    0% {
+        opacity: 0.5;
+        transform: scale(0.2);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.mole {
+    animation: mole-spawn 0.25s ease-in-out;
+}
+
+.heart {
+    animation: heart-spawn 0.25s ease;
+}
+
+/* Анимация мигания сердца */
+@keyframes blinkanimation {
+0% {opacity: 1;}
+50% {opacity: 0.3;}
+100% {opacity: 1;}
+}
+
+.blink {
+    animation: blinkanimation 0.3s ease-in-out 3;
+}
+
+/* Исчезновения крота  */
+@keyframes mole-hide {
+    0% {opacity:0.2; transform: translateY(100%);}
+   100% {opacity:0.2; transform: translateY(100%);}        
+}
+
+.mole-hide {
+    animation: mole-hide 0.25s ease-in-out forwards ;
+}
+
+/* Анимация ударa по кроту */
+  @keyframes mole-hit {
+  0% {transform: scale(1); opacity: 1;}
+  30%{transform: scale(.6) rotate(90deg); opacity: .7; }
+  60%{transform: scale(.3) rotate(180deg); opacity: .5; }
+  80%{transform: scale(.1) rotate(360deg); opacity: .3; }
+  100%{transform: scale(0) rotate(720deg); opacity: 0;}
+  }
+  
+  .mole-hit {
+    animation: mole-hit .3s ease-in-out forwards;
+  }
+
+  /* анимация исчезновения сердца */
+  @keyframes heart-blink {
+    0%, 100% {opacity: .2; transform: scale(.5);}
+    50% {opacity: 1; transform: scale(1);}
+  }
+
+.heart-blink  {
+    animation: heart-blink .5s ease-in-out forwards;
+}
+
+/* анимация клика по сердцу */
+@keyframes heart-glow {
+    0%, 50%, 80% {filter: brightness(1); transform: scale(1);}
+    30%, 70%, 100% {filter: brightness(); transform: scale(.8); }
+}
+
+.heart-glow {
+    animation:heart-glow .5s ease-in-out forwards;
+}

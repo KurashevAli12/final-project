@@ -1,0 +1,277 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    font-family: "Inter Tight", serif;
+  font-optical-sizing: auto;
+  font-weight:500;
+  font-style: normal;
+  background: url(../images/black-wood.jpg);
+  padding-top: 100px;
+}
+
+h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.container {
+    background: white;
+    margin: 0 auto;
+    width: 800px;
+    min-height: 500px;
+    border: 10px solid white
+}
+
+header {
+    display: flex;
+    height: 150px;
+}
+
+.title-block {
+  
+    position: relative;
+    width: 80%;
+    height: 100%;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background: url(../images/code.avif) no-repeat center center / cover;
+}
+
+.title-block::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.4;
+    background: black;
+}
+
+.title {
+    z-index: 1;
+}
+
+.user-pic {
+ 
+    width: 20%;
+    height: 100%;
+    background: url(../images/еру.jpg) no-repeat center center / cover ;
+}
+
+nav ul {
+    display: flex;
+    margin: 10px 0;
+    background: rgb(174, 162, 162);
+
+}
+
+nav li a {
+    text-decoration: none;
+    color: rgb(87, 82, 82);
+    font-weight: bold;
+    padding: 20px;
+    display: inline-block;
+    border-right: 2px solid rgb(91, 86, 86);
+    transition: background 0.3s ease;
+}
+
+nav li a:hover {
+    background-color: rgb(136, 132, 132);
+}
+
+.content-wrapper {
+    display: flex;
+}
+
+.content {
+    width: 70%;
+    padding: 20px;
+}
+
+.side-bar {
+    width: 30%;
+    padding: 20px;
+}
+
+.content p {
+    line-height: 20px;
+}
+
+.side-bar li a {
+    display: inline-block;
+    padding: 10px 0;
+    text-decoration: none;
+    color: black;
+    transition: transform .3s ease;
+}
+
+.side-bar li a:hover {
+ transform: translateX(10px);
+}
+
+.hidden {
+    display: none;
+}
+
+#happy-choice {
+    display: inline-block;
+    text-decoration: none;
+    font-weight: bold;
+    color: #000;
+    transition: color .15s;
+}
+
+#happy-choice:hover {
+    color: rgb(39, 102, 248);
+}
+
+footer {
+    min-width: 950px;
+    background-color: #010122;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-wrapper {
+    overflow: hidden;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.footer-logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.footer-contant {
+    font-size: 1em;
+}
+
+.footer-contant p {
+margin: 5px;
+}
+
+.footer-social a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+.footer-social {
+   display: flex;
+   margin: 15px;
+   gap: 5px;
+}
+
+.footer-copy {
+margin-top: 15px;
+font-size: 0.9em;
+}
+
+.social-btn img {
+width: 30px;
+height: 30px;
+background:none;
+transition: all .3 ease;
+}
+
+.social-btn:hover img {
+transform: scale(1.2);
+opacity: .8;
+}
+
+      /* Сайт-визитка*/
+/* Для планшетов и экранов до 768px */
+@media (max-width: 768px) {
+
+  body {
+    padding-top: 20px;
+  }
+  .container {
+    width: 90%;
+    border-width: 5px;
+  }
+
+  header {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .title-block,
+  .userpic {
+    width: 100%;
+    height: 100px;
+    margin: 0;
+  }
+
+  nav ul {
+    flex-direction: column;
+  }
+
+  nav li a {
+    border-right: none;
+    border-bottom: 1px solid rgb(209, 203, 203);
+    justify-content: center;
+  }
+
+  .content-wrapper {
+    flex-direction: column;
+  }
+
+  .content,
+  .sidebar {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .footer-wrapper {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-social {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
+/* Для телефонов до 480px */
+@media (max-width: 480px) {
+  .title-block {
+    font-size: 20px;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+
+  nav li a {
+    padding: 15px;
+    font-size: 0.9em;
+  }
+
+  #toggle-button {
+    font-size: 0.9em;
+    padding: 8px 16px;
+  }
+
+  .footer-logo {
+    font-size: 1.2em;
+  }
+
+  .social-btn img {
+    width: 24px;
+    height: 24px;
+  }
+}

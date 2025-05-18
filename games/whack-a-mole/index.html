@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whack-a-mole</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Стартовый экран -->
+     <div id="start-screen" class="screen">
+        <h1>Ударь крота</h1>
+        <button id="start-btn">Начать игру</button>
+     </div>
+
+     <!-- Игровое поле -->
+      <div id="game-container" class="hidden">
+        <div id="grid"></div>
+        <div id="info">
+            <div id="lives">❤️❤️❤️</div>
+            <div id="timer">Время: 0:00</div>
+        </div>
+      </div>
+
+      <!-- Поп-ап "Game over" -->
+       <div id="game-over" class="screen hidden">
+        <div class="popup">
+            <h2>Game over</h2>
+            <p id="final-time"></p>
+            <button id="restart-btn">Начать заново</button>
+        </div>
+       </div>
+
+       <!-- Звуковые элементы -->
+        <audio id="hitsound" src="assets/hit.wav" preload="auto" ></audio>
+        <audio id="misssound" src="assets/miss.wav" preload="auto" ></audio>
+        <audio id="gameoversound" src="assets/gameover.wav" preload="auto" ></audio>
+        <audio id="hitheartsound" src="assets/hitHeart.wav" preload="auto" ></audio>
+        <audio id="missheartsound" src="assets/missHeart.wav" preload="auto" ></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
