@@ -4,7 +4,9 @@ const overlay = document.getElementById('overlay');
 const recordEl = document.getElementById('record');
 const board = document.querySelector('canvas');
 
-const size = 25, rows = 35, colls = 25;
+const size = 25;
+const rows = Math.floor((window.innerWidth - 50) /size); 
+     colls = Math.floor((window.innerHeight - 100) /size);
 board.width = rows * size;
 board.height = colls * size;
 
