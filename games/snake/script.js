@@ -33,7 +33,7 @@ const snake = {
 const food = {
 x: null,
 y: null,
-placeFood: function() {
+placeFood: function() { 
     let valid = true;
 
     while(valid) {
