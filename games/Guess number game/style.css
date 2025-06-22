@@ -11,6 +11,14 @@ body {
     align-items: center;
 }
 
+#record {
+    color: #333;
+    font-size: 2rem;
+    text-shadow: 0 0 20px rgba(184,183,183, .3);
+    background-color: rgba(255, 255, 255, .8);
+    border-radius: 15px;
+}
+
 .container {
     text-align: center;
 }

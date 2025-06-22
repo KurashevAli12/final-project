@@ -1,6 +1,7 @@
 const MIN_NUMBER = 1,
       MAX_NUMBER = 100;
-      
+ 
+let highScore = localStorage.getItem('guessNumberRecord') || Infinity;      
 let answer;
 let attempts = 0;
 
@@ -12,8 +13,14 @@ const guessInput = document.getElementById("guess-input"),
       hint = document.getElementById("hint"),
       attemptsDisplay = document.getElementById("attempts"),
       newGame = document.getElementById("new-game");
+      const recordEl = document.getElementById('record');
 
 guessInput.disabled = true;
+
+if(highScore != Infinity) {
+    recordEl.textContent = `Record:${highScore}`
+};
+
 
 newGame.addEventListener('click', function() {
     answer = parseInt((Math.random() * (MAX_NUMBER - MIN_NUMBER) + 1));

@@ -5,7 +5,7 @@ body {
   font-optical-sizing: auto;
   font-weight:500;
   font-style: normal;
-  background: url(../images/black-wood.jpg);
+  background: url(../images/bg.avif);
   padding-top: 100px;
 }
 
@@ -57,10 +57,9 @@ header {
 }
 
 .user-pic {
- 
-    width: 20%;
-    height: 100%;
-    background: url(../images/еру.jpg) no-repeat center center / cover ;
+  width: 20%;
+  height: 100%;
+  background: url(../images/еру.jpg) no-repeat center center / cover ;
 }
 
 nav ul {
@@ -102,6 +101,10 @@ nav li a:hover {
     line-height: 20px;
 }
 
+.side-bar ul {
+  margin-bottom: 10px;
+}
+
 .side-bar li a {
     display: inline-block;
     padding: 10px 0;
@@ -131,7 +134,6 @@ nav li a:hover {
 }
 
 footer {
-    max-width: 950px;
     background-color: #010122;
     color: #fff;
     padding: 20px 0;
@@ -275,58 +277,3 @@ opacity: .8;
     height: 24px;
   }
 }
-
-        /*whack a mole*/
-/* Медиа-запрос для планшетов */
-  @media (max-width: 768px) {
-    .cell {
-      width: 70px;
-      height: 70px;
-    }
-  
-    button {
-      font-size: 14px;
-      padding: 10px 20px;
-    }
-  
-    #info {
-      font-size: 1em;
-    }
-  
-    #lives {
-      font-size: 1.2em;
-    }
-  
-    #game-container {
-      max-width: 90vw;
-    }
-  }
-  
-  /* Медиа-запрос для телефонов */
-  @media (max-width: 480px) {
-    .cell {
-      width: 55px;
-      height: 55px;
-    }
-  
-    button {
-      font-size: 12px;
-      padding: 8px 16px;
-    }
-  
-    .screen {
-      padding: 15px;
-    }
-  
-    #info {
-      font-size: 0.9em;
-    }
-  
-    #lives {
-      font-size: 1em;
-    }
-  
-    #grid {
-      gap: 6px;
-    }
-  }
