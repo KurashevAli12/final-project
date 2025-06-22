@@ -142,8 +142,8 @@ function simulateKey(key) {
 
 board.addEventListener('touchstart', e => {
     const startTouch = (e.touches[0]);
-    touch.startX = startTouch.clientX
-     touch.startY = startTouch.clientY
+    touch.startX = startTouch.clientX;
+    touch.startY = startTouch.clientY;
 });
 
 board.addEventListener('touchend', e=> {
@@ -152,7 +152,7 @@ board.addEventListener('touchend', e=> {
     const swipeY = touch.startY - endTouch.clientY;
 
     if(Math.abs(swipeX) > Math.abs(swipeY)) {
-        if (swipeX > 20) simulateKey('Arrowleft');
+        if (swipeX > 20) simulateKey('ArrowLeft');
         else if (swipeX < -20) simulateKey('ArrowRight');
     } else {
         if (swipeY > 20) simulateKey('ArrowUp');
