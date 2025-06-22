@@ -140,7 +140,7 @@ function simulateKey(key) {
     document.dispatchEvent(eventKey);
 }
 
-board.addEventListener('touchstart', e => {
+document.addEventListener('touchstart', e => {
     const startTouch = (e.touches[0]);
     touch.startX = startTouch.clientX
      touch.startY = startTouch.clientY
