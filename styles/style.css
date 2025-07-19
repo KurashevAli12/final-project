@@ -195,9 +195,8 @@ opacity: .8;
       /* Сайт-визитка*/
 /* Для планшетов и экранов до 768px */
 @media (max-width: 768px) {
-
   body {
-    padding-top: 20px;
+    padding-top: 50px;
   }
   .container {
     width: 90%;
@@ -210,12 +209,18 @@ opacity: .8;
   }
 
   .title-block,
-  .userpic {
+  .user-pic {
     width: 100%;
-    height: 100px;
     margin: 0;
   }
 
+  .title-block {
+    height: 100px;
+  }
+
+  .user-pic {
+    height: 330px;
+  }
   nav ul {
     flex-direction: column;
   }
@@ -236,6 +241,10 @@ opacity: .8;
     padding: 10px;
   }
 
+  .content p {
+    padding-right: 10px;
+  }
+
   .footer-wrapper {
     flex-direction: column;
     align-items: center;
@@ -248,7 +257,7 @@ opacity: .8;
   }
 }
 
-/* Для телефонов до 480px */
+/* ï¿½ä»ï¿½ ï¿½äº ä»äº ï¿½ä»ä»ä»äº äºä» 480px */
 @media (max-width: 480px) {
   .title-block {
     font-size: 20px;
