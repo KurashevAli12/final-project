@@ -1,24 +1,22 @@
+// localStorage.removeItem('galery');
 let currentIndex = 0;
 let images = [];
 
-if(localStorage.getItem('galery')) {
-    image = JSON.parse(localStorage.getItem('galery'))
+if (localStorage.getItem("galery")) {
+  images = JSON.parse(localStorage.getItem("galery"));
+  console.log(1);
 } else {
-    images = [
- "images/ll.webp",
- "images/oo.jpg",
- "images/uu.jpg"
-];
+  images = ["images/ll.webp", "images/oo.jpg", "images/uu.jpg"];
 }
 
 function saveImage() {
-localStorage.setItem('galery', JSON.stringify(images));
+    console.log(2);
+    localStorage.setItem('galery', JSON.stringify(images));
 }
 
 
 
-const img = document.getElementById
-('gallery-image')
+const img = document.getElementById('gallery-image')
 
 function updateImage() {
     img.style.opacity = 0;
