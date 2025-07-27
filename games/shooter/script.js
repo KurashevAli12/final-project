@@ -14,57 +14,52 @@ canvas.height = window.innerHeight - 6;
 highScore = localStorage.getItem("highScore") || 0;
 recordEl.textContent = highScore;
 
-function Player(x, y, radius, color) {
-    this.x = x;
-    this.y = y;
-    this.radius = radius;
-    this.color = color;
-    this.score = 0;
-
-    this.draw = function () {
-        c.beginPath();
-        c.fillStyle = this.color;
-        c.arc(this.x, this.y, this.radius, 0, Math.PI * 2 );      
-        c.fill();
-    }     
+class CircleEntity {
+    constructor(x, y, radius, color) {
+        this.x = x;
+        this.y = y;
+        this.radius = radius;
+        this.color = color;
     }
-
-    function Projectile(x, y, radius, color, velocity, speed= 6) {
-    this.x = x;
-    this.y = y;
-    this.radius = radius;
-    this.color = color;
-    this.velocity = velocity;
-    this.speed = speed;
-
-    this.draw = function () {
+    draw() {
         c.beginPath();
         c.fillStyle = this.color;
         c.arc(this.x, this.y, this.radius, 0, Math.PI * 2 );      
         c.fill();
-    }  
-    this.update = function () {
+}
+}
+
+class Player extends CircleEntity  {
+    constructor(x, y, radius, color) {
+        super(x, y, radius, color)
+         this.score = 0;
+    }
+    
+    }     
+    
+
+    class Projectile extends CircleEntity {
+    constructor(x, y, radius, color, velocity, speed= 6) {
+        super(x, y, radius, color)
+        this.velocity = velocity;
+        this.speed = speed;
+    }
+   
+        update() {
         this.draw();
         this.x = this.x + this.velocity.x * this.speed;
         this.y = this.y + this.velocity.y * this.speed;             
     }   
 }
 
-      function Enemy (x, y, radius, color, velocity, speed= 6) {
-    this.x = x;
-    this.y = y;
-    this.radius = radius;
-    this.color = color;
-    this.velocity = velocity;
-    this.speed = speed;
-
-    this.draw = function () {
-        c.beginPath();
-        c.fillStyle = this.color;
-        c.arc(this.x, this.y, this.radius, 0, Math.PI * 2 );      
-        c.fill();
-    }  
-    this.update = function () {
+        class Enemy extends CircleEntity {
+        constructor(x, y, radius, color, velocity, speed= 6) {
+            super(x, y, radius, color)
+            this.velocity = velocity;
+            this.speed = speed;
+        }  
+     
+        update() {
         this.draw();
         this.x = this.x + this.velocity.x
         this.y = this.y + this.velocity.y;             
@@ -72,24 +67,20 @@ function Player(x, y, radius, color) {
 }
 
     const friction = 0.99;
-     function Particle (x, y, radius, color, velocity, ) {
-    this.x = x;
-    this.y = y;
-    this.radius = radius;
-    this.color = color;
-    this.velocity = velocity;
-    this.speed = Math.random() * 10;
-    this.alpha = 1;
-    this.draw = function () {
+     class Particle extends CircleEntity {
+        constructor(x, y, radius, color, velocity, ) {
+            super(x, y, radius, color)
+            this.velocity = velocity;
+            this.speed = Math.random() * 10;
+            this.alpha = 1;
+        }   
+    draw() {
         c.save();
         c.globalAlpha = this.alpha;
-        c.beginPath();
-        c.fillStyle = this.color;
-        c.arc(this.x, this.y, this.radius, 0, Math.PI * 2 );      
-        c.fill();
+        super.draw();
         c.restore();
-    }  
-    this.update = function () {
+    } 
+    update() {
         this.draw();
         this.velocity.x *= friction;
         this.velocity.y *= friction;
